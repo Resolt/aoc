@@ -6,6 +6,7 @@ use std::process::exit;
 
 fn main() {
 
+    // Open file
     let file: io::Result<File>;
 
     match env::args().last() {
@@ -18,6 +19,7 @@ fn main() {
         }
     }
 
+    // Get content
     let mut content = String::new();
     match file {
         Ok(mut f) => {
@@ -28,11 +30,15 @@ fn main() {
         }
     }
 
+    // part1
     let mut sum = 0;
     for line in content.lines() {
         sum += line_first_last_digit(line);
     }
-    println!("{sum}")
+    println!("Part1: {sum}");
+
+    // part2
+    println!("Part2: BLEGH");
 }
 
 fn line_first_last_digit(line: &str) -> u32 {
